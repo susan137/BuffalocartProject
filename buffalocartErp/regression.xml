@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="5"  parallel="methods">
+  <test thread-count="5" name="Test" parallel="tests">
+  <parameter name="browser" value="chrome"/>
+    <classes>
+    <class name="buffalocartErp.BuffalocartLoginTest"/>
+    
+     <!-- <class name="buffalocartErp.BuffalocartFileManagerTest"/>
+      <class name="buffalocartErp.SampleTest"/>
+      <class name="buffalocartErp.BuffalocartBugTest"/>-->
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
