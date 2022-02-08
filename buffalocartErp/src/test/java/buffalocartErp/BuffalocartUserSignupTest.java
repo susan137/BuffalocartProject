@@ -9,6 +9,7 @@ import driver.DriverFactory;
 import org.testng.AssertJUnit;
 import static org.testng.Assert.assertTrue;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -20,6 +21,7 @@ import pages.BuffalocartHomePage;
 import pages.BuffalocartLoginPage;
 import pages.BuffalocartUserDashboardPage;
 import pages.BuffalocartUserSignupPage;
+import util.CaptureScreenshots;
 
 public class BuffalocartUserSignupTest extends BaseTester{
 	
@@ -29,7 +31,7 @@ public class BuffalocartUserSignupTest extends BaseTester{
 	
 	@Test
 	
-	void logintest() throws InterruptedException {
+	void logintest() throws InterruptedException, Exception {
 		//driver=DriverFactory.createDriver(browser);
 		
 		BuffalocartLoginPage loginpage=new BuffalocartLoginPage(driver);
@@ -42,9 +44,7 @@ public class BuffalocartUserSignupTest extends BaseTester{
 		
 		
 		//Assert users name contains "obsqura"
-		BuffalocartUserDashboardPage userdasboard=new BuffalocartUserDashboardPage(driver);
 		
-		//Assert.assertEquals(userdasboard.verifyUsername("obsqura"), true);
 		
 		
 			 //assertTrue(elementText.contains("obsqura"));
@@ -52,15 +52,15 @@ public class BuffalocartUserSignupTest extends BaseTester{
 		
 		
 		//Create user
-		
+		BuffalocartUserDashboardPage userdasboard=new BuffalocartUserDashboardPage(driver);
 		userdasboard.newUsername();
 		BuffalocartUserSignupPage usersignup=new BuffalocartUserSignupPage(driver);
-		usersignup.enterFullname("John Doe");
-		usersignup.enterEmployment_id("123");
-		usersignup.enterUsername("Test");
+		usersignup.enterFullname("John Doe123");
+		usersignup.enterEmployment_id("012834");
+		usersignup.enterUsername("Doe1234");
 		usersignup.enterPassword("1234");
 		usersignup.enterconfirm_password("1234");
-		usersignup.enterEmail("test@test.com");
+		usersignup.enterEmail("testDoe1234@test.com");
 		usersignup.enterlocalDropdown("French (Benin)");
 		//usersignup.enterlanguageDropdown("English");
 		usersignup.enterPhone("123456789");
@@ -70,8 +70,14 @@ public class BuffalocartUserSignupTest extends BaseTester{
 		usersignup.enteruserTypeDropbox("Admin");
 		//usersignup.enterdirectionDropdown("LTR");
 		usersignup.enterPermissionRadio("Everyone                                            ");
-		usersignup.createUser();
-			
+		//CaptureScreenshots.captureScreenshots(driver, "signup");
+		String actualTitle=usersignup.createUser();
+		
+		//Verify the form submission
+		//String actualTitle=userdasboard.getPageTitle();
+		String expectedTitle="User List1";
+		Assert.assertEquals(actualTitle, expectedTitle);
+		
 	
 		
 	}

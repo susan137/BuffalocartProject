@@ -52,6 +52,10 @@
 			}
 			
 		
+		public String getPageTitle() {
+			return(driver.getTitle());
+			
+		}
 		
 		
 		public void newUsername() {

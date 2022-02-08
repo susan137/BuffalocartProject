@@ -154,29 +154,14 @@ public class BuffalocartUserSignupPage {
 		
 	}
 	
-	/*public boolean retryingFindClick(By by) {
-	    boolean result = false;
-	    int attempts = 0;
-	    while(attempts < 2) {
-	        try {
-	            driver.findElement(by).click();
-	            result = true;
-	            break;
-	        } catch(StaleElementException e) {
-	        }
-	        attempts++;
-	    }
-	    return result;
-	}*/
+
 
 	public void enterlocalDropdown(String localDropdowntext) {
 		
 		
 		boolean result = false;
 	    int attempts = 0;
-	    
-	    //JavascriptExecutor js = (JavascriptExecutor) driver;  
-	    //js.executeScript("arguments[0].click()",localDropdown);
+	   
         
 	   
 		localDropdown.click();
@@ -215,15 +200,7 @@ public class BuffalocartUserSignupPage {
 	        attempts++;
 	        }
 		}
-		
-/*public void enterlanguageDropdown(String userTypeDropdowntext) {
-		
-		Select sel=new Select(userTypeDropbox);
-		
-		sel.selectByVisibleText(userTypeDropdowntext);
-		
-	}*/
-	
+
 	public void enteruserTypeDropbox(String userTypeDropdowntext) {
 		
 		WebDriverWait wait = new WebDriverWait (driver, 20);
@@ -301,13 +278,13 @@ public class BuffalocartUserSignupPage {
 			}
 		
 	}
-	public void createUser() {
+	public String createUser() {
 		// TODO Auto-generated method stub
 		createuser.click();
-		
-		
+		return(driver.getTitle());
 		
 	}
+		
 	
 	public void fileupload(String fileUpload1) {
 	
